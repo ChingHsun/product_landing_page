@@ -1,0 +1,173 @@
+// components/Hero/Hero.module.scss
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.heroSection {
+  @include section-padding;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 255, 65, 0.1) 0%,
+      rgba(0, 0, 0, 0.9) 70%
+    );
+    pointer-events: none;
+  }
+}
+
+.glitch {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: $primary-color;
+  text-shadow: $glow-primary;
+  animation: glitch 3s infinite;
+  @include glitch-effect;
+
+  @include responsive-md {
+    font-size: 2.8rem;
+  }
+
+  @include responsive-xs {
+    font-size: 2.2rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+}
+
+.terminalFrame {
+  background-color: $terminal-bg;
+  border-radius: 10px;
+  border: 1px solid $border-color;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+  }
+}
+
+.terminalHeader {
+  background-color: #1a1a1a;
+  padding: 10px 15px;
+  display: flex;
+  gap: 7px;
+}
+
+.terminalButton {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+
+  &:nth-child(1) {
+    background-color: #ff5f57;
+  }
+
+  &:nth-child(2) {
+    background-color: #ffbd2e;
+  }
+
+  &:nth-child(3) {
+    background-color: #28ca41;
+  }
+}
+
+.terminalBody {
+  padding: 15px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 255, 65, 0.05) 50%,
+      transparent 100%
+    );
+    animation: scan-line 3s linear infinite;
+    pointer-events: none;
+  }
+}
+
+.uspContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+
+  @include responsive-sm {
+    align-items: center;
+  }
+}
+
+.uspItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem;
+  border-left: 3px solid $primary-color;
+  border-radius: 0 5px 5px 0;
+  transition: transform 0.3s;
+  transform: translateX(5px);
+  opacity: 0.5;
+}
+
+.uspIcon {
+  font-size: 1.5rem;
+  color: $primary-color;
+  text-shadow: $glow-primary;
+}
+
+.uspText {
+  font-family: $font-mono;
+  letter-spacing: 1px;
+}
+
+.ctaContainer {
+  margin-top: 2.5rem;
+}
+
+// Responsive adjustments
+@include responsive-md {
+  .heroSection {
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .productImageContainer {
+    position: absolute;
+		z-index: 0;
+		opacity: 0.1;
+  }
+}
+
+
+@include responsive-sm {
+  .heroSection {
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .productImageContainer {
+    margin-bottom: 2rem;
+  }
+}
