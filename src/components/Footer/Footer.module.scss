@@ -1,0 +1,239 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.footer {
+  background-color: rgba(5, 5, 5, 0.9);
+  border-top: 1px solid $border-color;
+  padding: 4rem 0 2rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 255, 65, 0.05) 0%,
+      rgba(0, 0, 0, 0) 70%
+    );
+    pointer-events: none;
+  }
+}
+
+.footerTitle {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: $primary-color;
+  text-shadow: $glow-primary;
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.footerText {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  max-width: 300px;
+}
+
+.footerHeading {
+  font-family: $font-display;
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: $primary-color;
+    box-shadow: $glow-primary;
+  }
+}
+
+.footerLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 0.8rem;
+
+    a {
+      color: #aaa;
+      font-family: $font-mono;
+      text-decoration: none;
+      transition: all 0.3s;
+      position: relative;
+      padding-left: 15px;
+
+      &::before {
+        content: ">";
+        position: absolute;
+        left: 0;
+        color: $primary-color;
+        opacity: 0;
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        color: $primary-color;
+        padding-left: 20px;
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.socialLinks {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1rem;
+
+  li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #aaa;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: $primary-color;
+      color: black;
+      transform: translateY(-3px);
+      box-shadow: $glow-primary;
+    }
+  }
+}
+
+.footerContact {
+  font-style: normal;
+
+  p {
+    margin-bottom: 0.8rem;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+
+    i {
+      color: $primary-color;
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
+    }
+
+    a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.newsletter {
+  margin-top: 2rem;
+
+  h5 {
+    font-family: $font-display;
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.newsletterForm {
+  display: flex;
+
+  input {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid $border-color;
+    padding: 0.7rem 1rem;
+    color: white;
+    font-family: $font-mono;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+
+  button {
+    background-color: $primary-color;
+    color: black;
+    border: none;
+    padding: 0 1.5rem;
+    font-family: $font-mono;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: lighten($primary-color, 10%);
+    }
+  }
+}
+
+.footerBottom {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.copyright {
+  color: #777;
+  font-size: 0.9rem;
+
+  @include responsive-sm {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+
+.legalLinks {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-end;
+
+  @include responsive-sm {
+    justify-content: center;
+  }
+
+  li {
+    margin-left: 1.5rem;
+
+    a {
+      color: #777;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
