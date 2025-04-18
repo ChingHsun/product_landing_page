@@ -2,7 +2,7 @@
 
 URL: https://product-landing-page-bgno.vercel.app/
 
-![Computer Product Landing Page](/readme.png)
+<img width="1206" alt="readme" src="https://github.com/user-attachments/assets/2b263d21-5e8f-45b4-ac07-3cfd32baf73d" />
 
 ## 🛠️ Tech Stack
 
