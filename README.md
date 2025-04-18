@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Computer Product Landing Page
 
-## Getting Started
+URL: https://product-landing-page-bgno.vercel.app/
 
-First, run the development server:
+![Computer Product Landing Page](/readme.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🛠️ Tech Stack
+
+- **Next.js 15**: React framework with server components and app router
+- **TypeScript**: Type safety for more robust code
+- **React 19**: Latest version of React for building user interfaces
+- **Bootstrap**: For responsive UI components
+- **Sass/SCSS**: For advanced styling and theming
+- **ESLint**: Code quality and style checking
+- **AI-Driven Development**: Built with assistance from Claude AI for code generation and problem-solving
+
+## 📁 Project Structure
+
+```
+/src
+  /app             # Next.js app router pages and layouts
+  /components      # React components
+  /styles          # Global styles, variables, and mixins
+  /types           # TypeScript type definitions
+  MOCK_data.ts     # mock product data from API
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🤖 Development Challenging & Solutions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project was developed with significant assistance from Claude AI, which provided an innovative approach to web development:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prompt Engineering Journey
 
-## Learn More
+1. **Challenging**: Early attempted prompts involved providing comprehensive requirements all at once, which resulted in information overload and complex outputs that were difficult to refine.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Solution**: The successful approach involved breaking down the development process into logical steps:
+   - First defining product specifications and data structure
+   - Establishing the visual style and theme
+   - Building components sequentially (Header → Hero → Product Cards → Footer)
+   - Finally optimizing SEO and performance
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Bootstrap and Next.js Integration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Challenging**: Initially faced compatibility challenges between Bootstrap and Next.js. These frameworks are less commonly paired together because:
 
-## Deploy on Vercel
+   - Bootstrap relies heavily on JavaScript that needs to run in the client
+   - Next.js's server components architecture requires special handling for client-side libraries
+   - CSS module conflicts can occur without proper configuration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Solution**: Implemented `react-bootstrap` which provides React components that work natively with Next.js's component model, and created a custom `BootstrapLoader` base on [this article](https://1manstartup.com/blogs/install-bootstrap-for-nextjs-app-router).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Performance Optimization
+
+Used Lighthouse to test and optimize the site's performance, focusing on:
+
+- Core Web Vitals
+- Accessibility features
+- SEO optimization
+- Best practices for modern web development
