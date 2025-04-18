@@ -1,0 +1,83 @@
+@import "./variables";
+
+@mixin glitch-effect {
+  position: relative;
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 2px;
+    text-shadow: -1px 0 red;
+    top: 0;
+    color: $primary-color;
+    background: $dark-bg;
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+  }
+}
+
+@mixin section-padding {
+  padding: 6rem 0;
+  position: relative;
+}
+
+@mixin hover-effect {
+  transition: all 0.3s ease;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@mixin glow-text {
+  color: $primary-color;
+  text-shadow: $glow-primary;
+}
+
+@mixin hacker-section-title {
+  font-size: 2.5rem;
+  position: relative;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: $primary-color;
+  text-shadow: $glow-primary;
+  font-family: $font-display;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: $primary-color;
+    box-shadow: $glow-primary;
+    margin: 15px auto 0;
+  }
+}
+
+@mixin hacker-box {
+  background-color: rgba(10, 10, 10, 0.7);
+  border-radius: 10px;
+  padding: 2rem;
+  border: 1px solid $border-color;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@mixin responsive-md {
+  @media (max-width: 991.98px) {
+    @content;
+  }
+}
+
+@mixin responsive-sm {
+  @media (max-width: 767.98px) {
+    @content;
+  }
+}
+
+@mixin responsive-xs {
+  @media (max-width: 575.98px) {
+    @content;
+  }
+}
