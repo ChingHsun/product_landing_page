@@ -80,6 +80,8 @@ const ProductCard: FC<{ product: ProductType }> = ({ product }) => {
           className={styles.productImage}
           width={300}
           height={300}
+          loading="lazy"
+          priority={false}
         />
         {product.promotion && (
           <div className={styles.promotionTag}>
