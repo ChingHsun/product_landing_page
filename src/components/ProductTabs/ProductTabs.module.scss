@@ -62,15 +62,15 @@
       width: 80%;
     }
   }
-}
 
-/* Bootstrap active */
-:global(.nav-link.active) {
-  color: $primary-color !important;
-  background-color: transparent !important;
+  /* Bootstrap active */
+  :global(.nav-link.active) {
+    color: $primary-color !important;
+    background-color: transparent !important;
 
-  &::after {
-    width: 80% !important;
+    &::after {
+      width: 80% !important;
+    }
   }
 }
 
