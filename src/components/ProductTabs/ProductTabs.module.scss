@@ -54,7 +54,6 @@
     transition: width 0.3s;
   }
 
-  &.active,
   &:hover {
     color: $primary-color;
     background-color: transparent;
@@ -62,6 +61,16 @@
     &::after {
       width: 80%;
     }
+  }
+}
+
+/* Bootstrap active */
+:global(.nav-link.active) {
+  color: $primary-color !important;
+  background-color: transparent !important;
+
+  &::after {
+    width: 80% !important;
   }
 }
 
@@ -81,7 +90,11 @@
 }
 
 .productCard {
-  @include hacker-box;
+  background-color: rgba(10, 10, 10, 0.7);
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid $border-color;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s, box-shadow 0.3s;
   height: 100%;
   display: flex;
@@ -96,61 +109,8 @@
 .productImageContainer {
   position: relative;
   margin-bottom: 1.5rem;
-}
-
-.terminalFrame {
-  background-color: $terminal-bg;
   border-radius: 8px;
-  border: 1px solid $border-color;
   overflow: hidden;
-}
-
-.terminalHeader {
-  background-color: #1a1a1a;
-  padding: 8px 12px;
-  display: flex;
-  gap: 6px;
-}
-
-.terminalButton {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-
-  &:nth-child(1) {
-    background-color: #ff5f57;
-  }
-
-  &:nth-child(2) {
-    background-color: #ffbd2e;
-  }
-
-  &:nth-child(3) {
-    background-color: #28ca41;
-  }
-}
-
-.terminalBody {
-  position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0, 255, 65, 0.05) 50%,
-      transparent 100%
-    );
-    animation: scan-line 3s linear infinite;
-    pointer-events: none;
-    z-index: 1;
-  }
 }
 
 .productImage {
@@ -158,6 +118,11 @@
   width: 100%;
   height: auto;
   object-fit: cover;
+  transition: transform 0.5s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .productTypeTag {
@@ -202,13 +167,24 @@
   color: $primary-color;
   font-family: $font-display;
   letter-spacing: 1px;
-  min-height: 3.2rem;
+  min-height: 2rem;
+}
+
+.productRatingContainer {
+  margin-bottom: 1rem;
 }
 
 .productRating {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba(0, 255, 65, 0.05);
+  }
 }
 
 .starRating {
@@ -230,6 +206,47 @@
 .ratingValue {
   font-size: 0.9rem;
   color: #aaa;
+  margin-right: 10px;
+}
+
+.ratingToggle {
+  background: none;
+  border: none;
+  color: $primary-color;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: $font-mono;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: rgba(0, 255, 65, 0.1);
+  }
+}
+
+.detailedRatings {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  border-left: 3px solid $primary-color;
+}
+
+.ratingDetail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.ratingLabel {
+  font-size: 0.9rem;
+  color: #ccc;
 }
 
 .productDescription {
@@ -239,12 +256,12 @@
   flex: 1;
   line-height: 1.6;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-height: 6rem;
 }
 
-// 規格區塊樣式
 .specificationsContainer {
   display: flex;
   flex-direction: column;
@@ -345,12 +362,13 @@
 .productActions {
   display: flex;
   gap: 10px;
+  margin-top: auto;
 
   .viewButton,
-  .configureButton {
+  .startButton {
     flex: 1;
     font-size: 0.9rem;
-    padding: 10px;
+    padding: 12px;
     text-align: center;
     border-radius: 4px;
     font-family: $font-mono;
@@ -358,16 +376,36 @@
     transition: all 0.3s;
     display: inline-block;
     text-decoration: none;
+    font-weight: 600;
   }
 
-  .configureButton {
-    background-color: rgba(255, 255, 255, 0.1);
+  .viewButton {
+    background-color: rgba(0, 0, 0, 0.3);
     color: white;
     border: 1px solid $border-color;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.1);
       border-color: $primary-color;
+    }
+  }
+
+  .startButton {
+    background-color: $primary-color;
+    color: black;
+    border: 1px solid $primary-color;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+
+    &:hover {
+      background-color: lighten($primary-color, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 0 15px rgba(0, 255, 65, 0.7);
+    }
+
+    &:active {
+      transform: translateY(0);
     }
   }
 }

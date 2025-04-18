@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styles from "./ProductCard.module.scss";
-import { PCEnum, ProductType } from "@/types";
+import { PCEnum, ProductType, Rating } from "@/types";
 import Image from "next/image";
 
 const StarRating: FC<{ rating: number }> = ({ rating }) => {
@@ -25,7 +25,39 @@ const StarRating: FC<{ rating: number }> = ({ rating }) => {
   );
 };
 
+const DetailedRatings: FC<{
+  ratings: Rating;
+}> = ({ ratings }) => {
+  return (
+    <div className={styles.detailedRatings}>
+      <div className={styles.ratingDetail}>
+        <span className={styles.ratingLabel}>Composition Options:</span>
+        <div className={styles.ratingValue}>
+          <StarRating rating={ratings.compositionOptions} />
+          <span>{ratings.compositionOptions.toFixed(1)}</span>
+        </div>
+      </div>
+      <div className={styles.ratingDetail}>
+        <span className={styles.ratingLabel}>Processor/Graphics:</span>
+        <div className={styles.ratingValue}>
+          <StarRating rating={ratings.processorGraphicsCapabilities} />
+          <span>{ratings.processorGraphicsCapabilities.toFixed(1)}</span>
+        </div>
+      </div>
+      <div className={styles.ratingDetail}>
+        <span className={styles.ratingLabel}>Price/Quality:</span>
+        <div className={styles.ratingValue}>
+          <StarRating rating={ratings.priceQuality} />
+          <span>{ratings.priceQuality.toFixed(1)}</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const ProductCard: FC<{ product: ProductType }> = ({ product }) => {
+  const [showDetailedRatings, setShowDetailedRatings] = useState(false);
+
   const isPrebuilt = product.type === PCEnum.PREBUILT;
 
   const avgRating = !isPrebuilt
@@ -35,47 +67,54 @@ const ProductCard: FC<{ product: ProductType }> = ({ product }) => {
       3
     : null;
 
+  const toggleDetailedRatings = () => {
+    setShowDetailedRatings(!showDetailedRatings);
+  };
+
   return (
     <div className={styles.productCard}>
       <div className={styles.productImageContainer}>
-        <div className={styles.terminalFrame}>
-          <div className={styles.terminalHeader}>
-            <span className={styles.terminalButton}></span>
-            <span className={styles.terminalButton}></span>
-            <span className={styles.terminalButton}></span>
+        <Image
+          src={product.imageUrl}
+          alt={product.title}
+          className={styles.productImage}
+          width={300}
+          height={300}
+        />
+        {product.promotion && (
+          <div className={styles.promotionTag}>
+            <span>{product.promotion.description}</span>
           </div>
-          <div className={styles.terminalBody}>
-            <Image
-              src={product.imageUrl}
-              alt={product.title}
-              className={styles.productImage}
-              width={300}
-              height={300}
-            />
-            {product.promotion && (
-              <div className={styles.promotionTag}>
-                <span>{product.promotion.description}</span>
-              </div>
-            )}
-            <div className={styles.productTypeTag}>{product.type}</div>
-          </div>
-        </div>
+        )}
       </div>
 
       <div className={styles.productContent}>
         <h3 className={styles.productTitle}>{product.title}</h3>
 
         {!isPrebuilt && avgRating && (
-          <div className={styles.productRating}>
-            <StarRating rating={avgRating} />
-            <span className={styles.ratingValue}>{avgRating.toFixed(1)}</span>
+          <div className={styles.productRatingContainer}>
+            <div
+              className={styles.productRating}
+              onClick={toggleDetailedRatings}
+            >
+              <StarRating rating={avgRating} />
+              <span className={styles.ratingValue}>{avgRating.toFixed(1)}</span>
+              <button className={styles.ratingToggle}>
+                {showDetailedRatings ? "Hide Details" : "View Details"}
+              </button>
+            </div>
+            {showDetailedRatings && (
+              <DetailedRatings ratings={product.ratings} />
+            )}
           </div>
         )}
 
+        {/* 描述區塊 - 配置類和商業類顯示 */}
         {!isPrebuilt && product.description && (
           <p className={styles.productDescription}>{product.description}</p>
         )}
 
+        {/* 規格區塊 - 預裝類顯示 */}
         {isPrebuilt && (
           <div className={styles.specificationsContainer}>
             <div className={styles.specItem}>
@@ -137,16 +176,14 @@ const ProductCard: FC<{ product: ProductType }> = ({ product }) => {
           </div>
         </div>
 
+        {/* 操作按鈕 */}
         <div className={styles.productActions}>
-          <a
-            href={product.link}
-            className={`btn btn-primary ${styles.viewButton}`}
-          >
+          <a href={product.link} className={`${styles.viewButton}`}>
             <span>VIEW DETAILS</span>
           </a>
-          <button className={styles.configureButton}>
-            <span>{isPrebuilt ? "BUY NOW" : "CONFIGURE"}</span>
-          </button>
+          <a href={`${product.link}/configure`} className={styles.startButton}>
+            <span>START COMPOSING</span>
+          </a>
         </div>
       </div>
     </div>
