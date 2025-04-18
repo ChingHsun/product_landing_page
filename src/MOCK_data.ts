@@ -5,7 +5,7 @@ export const assembleProductList: ProductType[] = [
     type: PCEnum.ASSEMBLE,
     id: "spark-game-pc",
     title: "Gaming PC - Spark (Basic)",
-    imageUrl: "/images/configurator-systems/GAMEPC-Spark-V2-large.jpg",
+    imageUrl: "/images/GAMEPC-Spark-V2-medium.jpg",
     basePrice: 455.0,
     currency: "€",
     promotion: {
@@ -26,7 +26,7 @@ export const assembleProductList: ProductType[] = [
     type: PCEnum.ASSEMBLE,
     id: "amd-2024-game-pc",
     title: "Gaming PC - AMD (2024)",
-    imageUrl: "/images/configurator-systems/AMD-Ryzen7-large.jpg",
+    imageUrl: "/images/AMD-Ryzen7-medium.jpg",
     basePrice: 702.5,
     currency: "€",
     description:
@@ -42,7 +42,7 @@ export const assembleProductList: ProductType[] = [
     type: PCEnum.ASSEMBLE,
     id: "intel-2024-game-pc",
     title: "Gaming PC - Intel (2024)",
-    imageUrl: "/images/configurator-systems/INTEL-V2-large.jpg",
+    imageUrl: "/images/INTEL-V2-medium.jpg",
     basePrice: 600.0,
     currency: "€",
     description:
@@ -58,7 +58,7 @@ export const assembleProductList: ProductType[] = [
     type: PCEnum.ASSEMBLE,
     id: "amd-actie-game-pc",
     title: "Gaming PC - AMD Promotion",
-    imageUrl: "/images/configurator-systems/AMD-Ryzen-V2-large.jpg",
+    imageUrl: "/images/AMD-Ryzen-V2-medium.jpg",
     basePrice: 547.5,
     currency: "€",
     description:
@@ -74,7 +74,7 @@ export const assembleProductList: ProductType[] = [
     type: PCEnum.ASSEMBLE,
     id: "intel-12-game-pc",
     title: "Gaming PC - Intel Action",
-    imageUrl: "/images/configurator-systems/INTEL-Actie-V2-large.jpg",
+    imageUrl: "/images/INTEL-Actie-V2-medium.jpg",
     basePrice: 525.0,
     currency: "€",
     description:
@@ -93,7 +93,7 @@ export const businessProductList: ProductType[] = [
     type: PCEnum.BUSINESS,
     id: "business-pc-intel-ddr4",
     title: "Business PC - Intel DDR4",
-    imageUrl: "/images/configurator-systems/Zakelijke-PC-V2- Intel-large.jpg",
+    imageUrl: "/images/Zakelijke-PC-V2-Intel-large.jpg",
     basePrice: 542.5,
     currency: "€",
     description:
@@ -109,7 +109,7 @@ export const businessProductList: ProductType[] = [
     type: PCEnum.BUSINESS,
     id: "business-pc-intel-14",
     title: "Business PC - Intel DDR5",
-    imageUrl: "/images/configurator-systems/Zakelijke-PC-V3- Intel-large.jpg",
+    imageUrl: "/images/Zakelijke-PC-V3-Intel-large.jpg",
     basePrice: 532.5,
     currency: "€",
     description:
@@ -125,7 +125,7 @@ export const businessProductList: ProductType[] = [
     type: PCEnum.BUSINESS,
     id: "business-pc",
     title: "Business PC - AMD (2024)",
-    imageUrl: "/images/configurator-systems/Zakelijke-PC-V2- AMD-large.jpg",
+    imageUrl: "/images/Zakelijke-PC-V2-AMD-large.jpg",
     basePrice: 682.5,
     currency: "€",
     description:
@@ -144,8 +144,7 @@ export const prebuiltProductList: ProductType[] = [
     type: PCEnum.PREBUILT,
     id: "prebuilt-Console",
     title: "CBNL Prebuilt | Console",
-    imageUrl:
-      "/images/prebuilt/blackfriday-pc-1/Black-Friday-Game-PC-Deal-1-actionShot-large.jpg",
+    imageUrl: "/images/Black-Friday-Game-PC-Deal-1-actionShot-medium.jpg",
     basePrice: 427.5,
     currency: "€",
     promotion: {
@@ -164,7 +163,7 @@ export const prebuiltProductList: ProductType[] = [
     type: PCEnum.PREBUILT,
     id: "prebuilt-e-sport-2023",
     title: "CBNL Prebuilt | E-sport 2023",
-    imageUrl: "/images/prebuilt/prebuilt-e-sport-2023/FX-MAIN-large.jpg",
+    imageUrl: "/images/FX-MAIN-medium.jpg",
     basePrice: 1145.0,
     currency: "€",
     promotion: {
@@ -183,7 +182,7 @@ export const prebuiltProductList: ProductType[] = [
     type: PCEnum.PREBUILT,
     id: "prebuilt-AI-beast",
     title: "CBNL Prebuilt | AI Beast",
-    imageUrl: "/images/prebuilt/prebuilt-AI-beast/4000X-MAIN-large.jpg",
+    imageUrl: "/images/4000X-MAIN-medium.jpg",
     basePrice: 2172.5,
     currency: "€",
     promotion: {
@@ -202,7 +201,7 @@ export const prebuiltProductList: ProductType[] = [
     type: PCEnum.PREBUILT,
     id: "prebuilt-gamer-XL",
     title: "CBNL Prebuilt | Gamer XL",
-    imageUrl: "/images/prebuilt/prebuilt-gamer-XL/DX-MAIN-large.jpg",
+    imageUrl: "/images/DX-MAIN-medium.jpg",
     basePrice: 922.5,
     currency: "€",
     promotion: {
@@ -221,8 +220,7 @@ export const prebuiltProductList: ProductType[] = [
     type: PCEnum.PREBUILT,
     id: "prebuilt-scout-plus",
     title: "CBNL Prebuilt | Scout Plus",
-    imageUrl:
-      "/images/prebuilt/prebuilt-scout-plus/prebuild_67fe71d9ca519-large.jpg",
+    imageUrl: "/images/prebuild_67fe71d9ca519-medium.jpg",
     basePrice: 690.0,
     currency: "€",
     promotion: {
@@ -242,8 +240,7 @@ export const prebuiltProductList: ProductType[] = [
     type: PCEnum.PREBUILT,
     id: "prebuilt-ranger-2K",
     title: "CBNL Prebuilt | Ranger 2K",
-    imageUrl:
-      "/images/prebuilt/prebuilt-ranger-2K/prebuild_67ff7a8a52ccb-large.jpg",
+    imageUrl: "/images/prebuild_67ff7a8a52ccb-medium.jpg",
     basePrice: 1350.0,
     currency: "€",
     promotion: {
@@ -263,8 +260,7 @@ export const prebuiltProductList: ProductType[] = [
     type: PCEnum.PREBUILT,
     id: "prebuilt-juggernaut2K",
     title: "CBNL Prebuilt | Juggernaut 2K",
-    imageUrl:
-      "/images/prebuilt/prebuilt-juggernaut2k/prebuild_67ffabe7ed63c-large.jpg",
+    imageUrl: "/images/prebuild_67ffabe7ed63c-medium.jpg",
     basePrice: 1905.0,
     currency: "€",
     promotion: {
@@ -284,8 +280,7 @@ export const prebuiltProductList: ProductType[] = [
     type: PCEnum.PREBUILT,
     id: "prebuilt-juggernaut4k",
     title: "CBNL Prebuilt | Juggernaut 4K",
-    imageUrl:
-      "/images/configurator-systems/prebuilt-juggernaut4k/game_67ffb4ae4bc96-large.jpg",
+    imageUrl: "/images/game_67ffb4ae4bc96-medium.jpg",
     basePrice: 2910.0,
     currency: "€",
     promotion: {
@@ -305,8 +300,7 @@ export const prebuiltProductList: ProductType[] = [
     type: PCEnum.PREBUILT,
     id: "prebuilt-scout",
     title: "CBNL Prebuilt | Scout",
-    imageUrl:
-      "/images/prebuilt/prebuilt-scout/prebuild_67fe69ba72f3e-large.jpg",
+    imageUrl: "/images/prebuild_67fe69ba72f3e-medium.jpg",
     basePrice: 630.0,
     currency: "€",
     promotion: {
