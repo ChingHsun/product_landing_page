@@ -17,8 +17,7 @@ const Hero = () => {
                     style={{ maxWidth: "500px", maxHeight: "500px" }}
                     width={500}
                     height={500}
-                    loading="lazy"
-                    priority={false}
+                    priority={true}
                   />
                 </div>
               </div>
