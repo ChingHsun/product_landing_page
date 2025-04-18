@@ -1,7 +1,8 @@
-import { ProductType } from "./types";
+import { PCEnum, ProductType } from "./types";
 
-export const productList: ProductType[] = [
+export const assembleProductList: ProductType[] = [
   {
+    type: PCEnum.ASSEMBLE,
     id: "spark-game-pc",
     title: "Gaming PC - Spark (Basic)",
     imageUrl: "/images/configurator-systems/GAMEPC-Spark-V2-large.jpg",
@@ -22,6 +23,7 @@ export const productList: ProductType[] = [
     link: "/game-pc/spark-game-pc",
   },
   {
+    type: PCEnum.ASSEMBLE,
     id: "amd-2024-game-pc",
     title: "Gaming PC - AMD (2024)",
     imageUrl: "/images/configurator-systems/AMD-Ryzen7-large.jpg",
@@ -37,6 +39,7 @@ export const productList: ProductType[] = [
     link: "/game-pc/amd-2024-game-pc",
   },
   {
+    type: PCEnum.ASSEMBLE,
     id: "intel-2024-game-pc",
     title: "Gaming PC - Intel (2024)",
     imageUrl: "/images/configurator-systems/INTEL-V2-large.jpg",
@@ -52,6 +55,7 @@ export const productList: ProductType[] = [
     link: "/game-pc/intel-2024-game-pc",
   },
   {
+    type: PCEnum.ASSEMBLE,
     id: "amd-actie-game-pc",
     title: "Gaming PC - AMD Promotion",
     imageUrl: "/images/configurator-systems/AMD-Ryzen-V2-large.jpg",
@@ -67,6 +71,7 @@ export const productList: ProductType[] = [
     link: "/game-pc/amd-actie-game-pc",
   },
   {
+    type: PCEnum.ASSEMBLE,
     id: "intel-12-game-pc",
     title: "Gaming PC - Intel Action",
     imageUrl: "/images/configurator-systems/INTEL-Actie-V2-large.jpg",
@@ -80,5 +85,241 @@ export const productList: ProductType[] = [
       priceQuality: 4.5,
     },
     link: "/game-pc/intel-12-game-pc",
+  },
+];
+
+export const businessProductList: ProductType[] = [
+  {
+    type: PCEnum.BUSINESS,
+    id: "business-pc-intel-ddr4",
+    title: "Business PC - Intel DDR4",
+    imageUrl: "/images/configurator-systems/Zakelijke-PC-V2- Intel-large.jpg",
+    basePrice: 542.5,
+    currency: "€",
+    description:
+      "This powerhouse is equipped with the latest generation Intel CPU (12th or 13th generation). This is the most powerful PC for semi-professionals.",
+    ratings: {
+      compositionOptions: 4.5,
+      processorGraphicsCapabilities: 4,
+      priceQuality: 5,
+    },
+    link: "/zakelijke-pc/business-pc-intel-ddr4",
+  },
+  {
+    type: PCEnum.BUSINESS,
+    id: "business-pc-intel-14",
+    title: "Business PC - Intel DDR5",
+    imageUrl: "/images/configurator-systems/Zakelijke-PC-V3- Intel-large.jpg",
+    basePrice: 532.5,
+    currency: "€",
+    description:
+      "This powerhouse is equipped with the latest generation Intel CPU (14th generation). This is the most powerful PC for semi-professionals.",
+    ratings: {
+      compositionOptions: 4.5,
+      processorGraphicsCapabilities: 4.5,
+      priceQuality: 4.5,
+    },
+    link: "/zakelijke-pc/business-pc-intel-14",
+  },
+  {
+    type: PCEnum.BUSINESS,
+    id: "business-pc",
+    title: "Business PC - AMD (2024)",
+    imageUrl: "/images/configurator-systems/Zakelijke-PC-V2- AMD-large.jpg",
+    basePrice: 682.5,
+    currency: "€",
+    description:
+      "Our business all-rounder. Quiet, powerful, affordable and can be configured for any application.",
+    ratings: {
+      compositionOptions: 4,
+      processorGraphicsCapabilities: 4,
+      priceQuality: 5,
+    },
+    link: "/zakelijke-pc/business-pc",
+  },
+];
+
+export const prebuiltProductList: ProductType[] = [
+  {
+    type: PCEnum.PREBUILT,
+    id: "prebuilt-Console",
+    title: "CBNL Prebuilt | Console",
+    imageUrl:
+      "/images/prebuilt/blackfriday-pc-1/Black-Friday-Game-PC-Deal-1-actionShot-large.jpg",
+    basePrice: 427.5,
+    currency: "€",
+    promotion: {
+      price: 402.5,
+      endDate: "2025-04-28",
+      description: "Spring Deals!",
+    },
+    specifications: {
+      processor: "AMD RYZEN 5 5600G - 3.9Ghz",
+      videoCard: "Onboard - RX Vega 7 (5600G)",
+      memory: "Corsair Vengeance Pro RGB 16GB(3600Mhz)",
+    },
+    link: "/prebuilt-game-pc/prebuilt-Console",
+  },
+  {
+    type: PCEnum.PREBUILT,
+    id: "prebuilt-e-sport-2023",
+    title: "CBNL Prebuilt | E-sport 2023",
+    imageUrl: "/images/prebuilt/prebuilt-e-sport-2023/FX-MAIN-large.jpg",
+    basePrice: 1145.0,
+    currency: "€",
+    promotion: {
+      price: 1070.0,
+      endDate: "2025-04-28",
+      description: "Spring Deals!",
+    },
+    specifications: {
+      processor: "Intel Core i5 13600KF - 3.5Ghz",
+      videoCard: "NVIDIA RTX 4060 8GB",
+      memory: "Corsair Vengeance Pro RGB 16GB(3600Mhz)",
+    },
+    link: "/prebuilt-game-pc/prebuilt-e-sport-2023",
+  },
+  {
+    type: PCEnum.PREBUILT,
+    id: "prebuilt-AI-beast",
+    title: "CBNL Prebuilt | AI Beast",
+    imageUrl: "/images/prebuilt/prebuilt-AI-beast/4000X-MAIN-large.jpg",
+    basePrice: 2172.5,
+    currency: "€",
+    promotion: {
+      price: 2037.5,
+      endDate: "2025-04-28",
+      description: "Spring Deals!",
+    },
+    specifications: {
+      processor: "AMD RYZEN 9 7900 - 3.7GHz",
+      videoCard: "NVIDIA RTX 5070 Ti 16GB",
+      memory: "Corsair Vengeance 32GB (6000Mhz)",
+    },
+    link: "/prebuilt-game-pc/prebuilt-AI-beast",
+  },
+  {
+    type: PCEnum.PREBUILT,
+    id: "prebuilt-gamer-XL",
+    title: "CBNL Prebuilt | Gamer XL",
+    imageUrl: "/images/prebuilt/prebuilt-gamer-XL/DX-MAIN-large.jpg",
+    basePrice: 922.5,
+    currency: "€",
+    promotion: {
+      price: 872.5,
+      endDate: "2025-04-28",
+      description: "Spring Deals!",
+    },
+    specifications: {
+      processor: "AMD RYZEN 5 5600X - 3.7GHz",
+      videoCard: "NVIDIA RTX 3060 8GB",
+      memory: "Corsair Vengeance Pro RGB 16GB(3600Mhz)",
+    },
+    link: "/prebuilt-game-pc/prebuilt-gamer-XL",
+  },
+  {
+    type: PCEnum.PREBUILT,
+    id: "prebuilt-scout-plus",
+    title: "CBNL Prebuilt | Scout Plus",
+    imageUrl:
+      "/images/prebuilt/prebuilt-scout-plus/prebuild_67fe71d9ca519-large.jpg",
+    basePrice: 690.0,
+    currency: "€",
+    promotion: {
+      price: 640.0,
+      endDate: "2025-04-28",
+      description: "Spring Deals!",
+    },
+    specifications: {
+      processor: "AMD RYZEN 5 5600X - 3.7GHz",
+      videoCard: "AMD RADEON RX 6500 XT 4GB",
+      memory: "Corsair Vengeance 16GB(3600Mhz)",
+      storage: "Lexar NM710 1TB (M.2)",
+    },
+    link: "/prebuilt-game-pc/prebuilt-scout-plus",
+  },
+  {
+    type: PCEnum.PREBUILT,
+    id: "prebuilt-ranger-2K",
+    title: "CBNL Prebuilt | Ranger 2K",
+    imageUrl:
+      "/images/prebuilt/prebuilt-ranger-2K/prebuild_67ff7a8a52ccb-large.jpg",
+    basePrice: 1350.0,
+    currency: "€",
+    promotion: {
+      price: 1275.0,
+      endDate: "2025-04-28",
+      description: "Spring Deals!",
+    },
+    specifications: {
+      processor: "AMD RYZEN 5 7500F",
+      videoCard: "NVIDIA RTX 5060 Ti 16GB",
+      memory: "Corsair Vengeance 32GB (5200Mhz)",
+      storage: "Lexar NM710 1TB (M.2)",
+    },
+    link: "/prebuilt-game-pc/prebuilt-ranger-2K",
+  },
+  {
+    type: PCEnum.PREBUILT,
+    id: "prebuilt-juggernaut2K",
+    title: "CBNL Prebuilt | Juggernaut 2K",
+    imageUrl:
+      "/images/prebuilt/prebuilt-juggernaut2k/prebuild_67ffabe7ed63c-large.jpg",
+    basePrice: 1905.0,
+    currency: "€",
+    promotion: {
+      price: 1805.0,
+      endDate: "2025-04-28",
+      description: "Spring Deals!",
+    },
+    specifications: {
+      processor: "AMD RYZEN 7 7700 - 3.8GHz",
+      videoCard: "AMD RADEON RX 9070 XT 16GB",
+      memory: "Corsair Vengeance 32GB (6000Mhz)",
+      storage: "Lexar NM710 1TB (M.2)",
+    },
+    link: "/prebuilt-game-pc/prebuilt-juggernaut2K",
+  },
+  {
+    type: PCEnum.PREBUILT,
+    id: "prebuilt-juggernaut4k",
+    title: "CBNL Prebuilt | Juggernaut 4K",
+    imageUrl:
+      "/images/configurator-systems/prebuilt-juggernaut4k/game_67ffb4ae4bc96-large.jpg",
+    basePrice: 2910.0,
+    currency: "€",
+    promotion: {
+      price: 2735.0,
+      endDate: "2025-04-28",
+      description: "Spring Deals!",
+    },
+    specifications: {
+      processor: "AMD RYZEN 9 7900X - 4.7GHz",
+      videoCard: "NVIDIA RTX 5080 16GB",
+      memory: "Corsair Vengeance 32GB (6000Mhz)",
+      storage: "Lexar NM710 1TB (M.2)",
+    },
+    link: "/prebuilt-game-pc/prebuilt-juggernaut4k",
+  },
+  {
+    type: PCEnum.PREBUILT,
+    id: "prebuilt-scout",
+    title: "CBNL Prebuilt | Scout",
+    imageUrl:
+      "/images/prebuilt/prebuilt-scout/prebuild_67fe69ba72f3e-large.jpg",
+    basePrice: 630.0,
+    currency: "€",
+    promotion: {
+      price: 580.0,
+      endDate: "2025-04-28",
+      description: "Spring Deals!",
+    },
+    specifications: {
+      processor: "AMD RYZEN 5 8600G - 4.3Ghz",
+      videoCard: "Integrated Graphics - AMD Radeon 760M",
+      memory: "Kingston FURY Beast 16GB (5600Mhz)",
+      storage: "Lexar NM710 1TB (M.2)",
+    },
+    link: "/prebuilt-game-pc/prebuilt-scout",
   },
 ];

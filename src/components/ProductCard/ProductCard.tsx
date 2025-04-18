@@ -1,6 +1,6 @@
 import { FC } from "react";
-import styles from "./Product.module.scss";
-import { ProductType } from "@/types";
+import styles from "./ProductCard.module.scss";
+import { PCEnum, ProductType } from "@/types";
 import Image from "next/image";
 
 const StarRating: FC<{ rating: number }> = ({ rating }) => {
@@ -25,12 +25,15 @@ const StarRating: FC<{ rating: number }> = ({ rating }) => {
   );
 };
 
-const Product: FC<{ product: ProductType }> = ({ product }) => {
-  const avgRating =
-    (product.ratings.compositionOptions +
-      product.ratings.processorGraphicsCapabilities +
-      product.ratings.priceQuality) /
-    3;
+const ProductCard: FC<{ product: ProductType }> = ({ product }) => {
+  const isPrebuilt = product.type === PCEnum.PREBUILT;
+
+  const avgRating = !isPrebuilt
+    ? (product.ratings.compositionOptions +
+        product.ratings.processorGraphicsCapabilities +
+        product.ratings.priceQuality) /
+      3
+    : null;
 
   return (
     <div className={styles.productCard}>
@@ -54,6 +57,7 @@ const Product: FC<{ product: ProductType }> = ({ product }) => {
                 <span>{product.promotion.description}</span>
               </div>
             )}
+            <div className={styles.productTypeTag}>{product.type}</div>
           </div>
         </div>
       </div>
@@ -61,12 +65,47 @@ const Product: FC<{ product: ProductType }> = ({ product }) => {
       <div className={styles.productContent}>
         <h3 className={styles.productTitle}>{product.title}</h3>
 
-        <div className={styles.productRating}>
-          <StarRating rating={avgRating} />
-          <span className={styles.ratingValue}>{avgRating.toFixed(1)}</span>
-        </div>
+        {!isPrebuilt && avgRating && (
+          <div className={styles.productRating}>
+            <StarRating rating={avgRating} />
+            <span className={styles.ratingValue}>{avgRating.toFixed(1)}</span>
+          </div>
+        )}
 
-        <p className={styles.productDescription}>{product.description}</p>
+        {!isPrebuilt && product.description && (
+          <p className={styles.productDescription}>{product.description}</p>
+        )}
+
+        {isPrebuilt && (
+          <div className={styles.specificationsContainer}>
+            <div className={styles.specItem}>
+              <span className={styles.specLabel}>CPU:</span>
+              <span className={styles.specValue}>
+                {product.specifications.processor}
+              </span>
+            </div>
+            <div className={styles.specItem}>
+              <span className={styles.specLabel}>GPU:</span>
+              <span className={styles.specValue}>
+                {product.specifications.videoCard}
+              </span>
+            </div>
+            <div className={styles.specItem}>
+              <span className={styles.specLabel}>RAM:</span>
+              <span className={styles.specValue}>
+                {product.specifications.memory}
+              </span>
+            </div>
+            {product.specifications.storage && (
+              <div className={styles.specItem}>
+                <span className={styles.specLabel}>Storage:</span>
+                <span className={styles.specValue}>
+                  {product.specifications.storage}
+                </span>
+              </div>
+            )}
+          </div>
+        )}
 
         <div className={styles.productDetails}>
           <div className={styles.productPrice}>
@@ -106,7 +145,7 @@ const Product: FC<{ product: ProductType }> = ({ product }) => {
             <span>VIEW DETAILS</span>
           </a>
           <button className={styles.configureButton}>
-            <span>CONFIGURE</span>
+            <span>{isPrebuilt ? "BUY NOW" : "CONFIGURE"}</span>
           </button>
         </div>
       </div>
@@ -114,4 +153,4 @@ const Product: FC<{ product: ProductType }> = ({ product }) => {
   );
 };
 
-export default Product;
+export default ProductCard;
